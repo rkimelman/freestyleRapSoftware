@@ -6,4 +6,4 @@
 
 Program instructions and details:
 - The user can determine initial values of the volume, rate of speech, and voice type for each set of n rap lines. Then, a collapsed gibbs sampler will 
-sample n-1 3D multivariate normal samples of values for each variable and assign them to each line i.
+sample n-1 (since the first values are already determined) 3D multivariate normal samples of values for each variable and assign them to each line i.
