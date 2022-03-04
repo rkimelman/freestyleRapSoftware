@@ -123,4 +123,13 @@ lyricsText <- apply(iteration, 1, function(x){
   text(save[x,1]$lyrics, nullTokens = FALSE)}
   )
 lyricsData <- as.data.frame(cbind(lyricsText))
-write.csv(lyricsData,"lyricsdata2.csv", row.names = FALSE)
+lyricsData2 <- apply(iteration,1:2, function(x){
+  return(lyricsData[x,][[1]])
+})
+# lyricsData3 <- apply(iteration,1, function(x){
+#   return(cbind(lyricsData2)[x,]$lyricsData2)
+# })
+# lyricsData4 <- apply(iteration, 1, function(x){
+#   return(unlist(lyricsData3[[x]]))
+# })
+write.csv(lyricsData2,"lyricsdata.csv", row.names = FALSE)
