@@ -8,3 +8,4 @@ Program instructions and details:
 - The user can determine initial values of the volume, rate of speech, and voice type for each set of n rap lines. Then, a collapsed gibbs sampler will 
 sample n-1 (since the first values are already determined) 3D multivariate normal samples of values for each variable and assign them to each line i.
 - Some rap lines may be read "silently" due to the nature of improvisation, the randomness inherent in this software, and the importance of silence in music.
+- To view the mathematics behind the collapsed gibbs sampler method, please refer to my repository labeled "CollapsedGibbsSampler".
