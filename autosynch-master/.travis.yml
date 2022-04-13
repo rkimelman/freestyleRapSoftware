@@ -1,0 +1,33 @@
+language: python
+dist: xenial # for Python versions >= 3.7
+sudo: required
+
+# Python versions
+python:
+  - "3.6"
+  - "3.7"
+
+# git settings
+git:
+  depth: 10
+
+# install dependencies
+install:
+  - sudo apt-get update
+  - sudo apt-get install portaudio19-dev
+  - pip install -r requirements.txt
+  - pip install pytest pytest-cov pytest-timeout mock
+
+# run tests
+script:
+  - export PYTHONPATH=$PYTHONPATH:./
+  - curl 'https://zenodo.org/record/3351632/files/mad.pt?download=1' > autosynch/mad_twinnet/outputs/states/mad.pt
+  - pytest --cov-config=.coveragerc --cov=autosynch tests/
+
+# only test relevant branches
+branches:
+  only:
+    - master
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -Z
